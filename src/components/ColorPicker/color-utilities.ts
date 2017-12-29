@@ -108,8 +108,8 @@ export function rgbToHsb(color: RGBAColor): HSBAColor {
   let huePercentage = 0;
   switch (largestComponent) {
     case r:
-      huePercentage = (g - b) / delta % 6;
-     break;
+      huePercentage = (g - b) / delta + (g < b ? 6 : 0);
+      break;
     case g:
       huePercentage = (b - r) / delta + 2;
       break;
